@@ -7,7 +7,6 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from backend.settings import SECRET_KEY
 from django.shortcuts import get_object_or_404
-from django.utils import timezone
 
 from .common import get_fields, check_authority
 
@@ -92,6 +91,7 @@ class BoothMenuDetailAPIView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         else:
             return Response({"message": "권한이 없습니다. 자신의 부스 메뉴만 삭제할 수 있습니다."}, status=status.HTTP_401_UNAUTHORIZED)
+
 
 
 class BoothOrderAPIView(APIView):
@@ -186,3 +186,4 @@ class TableOrderControlAPIView(APIView):
         else:
             return Response({"message": "잘못된 접근입니다."}, status=status.HTTP_401_UNAUTHORIZED)
 
+          
