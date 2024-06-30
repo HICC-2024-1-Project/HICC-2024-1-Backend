@@ -151,7 +151,7 @@ class TableOrderAPIView(APIView):
                 menu_id = item.get('menu_id')
                 menu_name = item.get('menu_name')
                 if not BoothMenu.objects.filter(pk=menu_id, menu_name=menu_name).exists(): #메뉴가 존재하지 않는 경우 404 응답 반환
-                    return Response({"message": "존재하는 메뉴가 아닙니다."}, status=status.HTTP_404_NOT_FOUND)
+                    return Response({"message": "현재 존재하는 메뉴가 아닙니다."}, status=status.HTTP_404_NOT_FOUND)
                 serializer.save()
                 orders.append(serializer.data)  #생성된 주문을 리스트에 추가
             else:
